@@ -20,8 +20,8 @@ class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): Platf
     init {
         messenger = binding.binaryMessenger
     }
-T
-    override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
+
+    T override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
         val creationParams = args as Map<String?, Any?>
         val channelName = "flutter_native_text_input${viewId}"
         channel = MethodChannel(messenger, channelName)
