@@ -26,8 +26,6 @@ class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): Platf
         val channelName = "flutter_native_text_input${viewId}"
         channel = MethodChannel(messenger, channelName)
 
-        return NativeTextInput(context!!, viewId, creationParams, channel)
+        return NativeTextInput(context, viewId, creationParams, channel)
     }
-
-
 }

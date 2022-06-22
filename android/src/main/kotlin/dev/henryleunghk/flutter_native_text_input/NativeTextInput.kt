@@ -98,10 +98,10 @@ internal class NativeTextInput(context: Context, id: Int, creationParams: Map<St
 
         val minHeightPadding = creationParams.get("minHeightPadding") as Double
         editText.setPadding(
-            0,
-            minHeightPadding.toInt() / 2,
-            0,
-            minHeightPadding.toInt() / 2)
+                0,
+                minHeightPadding.toInt() / 2,
+                0,
+                minHeightPadding.toInt() / 2)
 
         editText.hint = creationParams.get("placeholder") as String
 
@@ -236,13 +236,13 @@ internal class NativeTextInput(context: Context, id: Int, creationParams: Map<St
 
     fun showKeyboard() {
         val inputMethodManager: InputMethodManager =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(editText, 0)
     }
 
     fun hideKeyboard() {
         val inputMethodManager =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
     }
 
