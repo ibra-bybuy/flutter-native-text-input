@@ -8,7 +8,7 @@ import io.flutter.plugin.common.StandardMessageCodec
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
 
-abstract class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): PlatformViewFactory(StandardMessageCodec.INSTANCE) {
     /// The MethodChannel that will the communication between Flutter and native Android
     ///
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
