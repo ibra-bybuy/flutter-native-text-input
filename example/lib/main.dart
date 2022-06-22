@@ -21,6 +21,8 @@ class _MyAppState extends State<MyApp> {
 }
 
 class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
+
   final FocusNode _focusNode = FocusNode();
 
   _onChangeText(value) => debugPrint("_onChangeText: $value");
@@ -74,7 +76,7 @@ class HomePage extends StatelessWidget {
           ),
           DemoItem(
             title: 'NativeTextInput Example Usage',
-            child: Container(
+            child: SizedBox(
               height: 30,
               child: NativeTextInput(
                 decoration: BoxDecoration(
@@ -107,13 +109,14 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Center(
-            child: FlatButton(
-                color: Colors.blue,
-                colorBrightness: Brightness.dark,
+            child: TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.blue,
+                ),
                 child: const Text("View More Use Cases"),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => MoreUseCaseListingPage()));
+                      builder: (_) => const MoreUseCaseListingPage()));
                 }),
           ),
         ],
