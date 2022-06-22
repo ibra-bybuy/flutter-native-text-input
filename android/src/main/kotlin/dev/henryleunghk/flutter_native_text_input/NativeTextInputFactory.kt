@@ -8,7 +8,7 @@ import io.flutter.plugin.common.StandardMessageCodec
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
 
-public abstract class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+abstract class NativeTextInputFactory(binding: FlutterPlugin.FlutterPluginBinding): PlatformViewFactory(StandardMessageCodec.INSTANCE) {
     /// The MethodChannel that will the communication between Flutter and native Android
     ///
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -21,11 +21,11 @@ public abstract class NativeTextInputFactory(binding: FlutterPlugin.FlutterPlugi
         messenger = binding.binaryMessenger
     }
 
-    override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
+    override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
         val creationParams = args as Map<String?, Any?>
         val channelName = "flutter_native_text_input${viewId}"
         channel = MethodChannel(messenger, channelName)
 
-        return NativeTextInput(context, viewId, creationParams, channel)
+        return NativeTextInput(context!!, viewId, creationParams, channel)
     }
 }
